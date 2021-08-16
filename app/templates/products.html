@@ -1,0 +1,23 @@
+<section id='product' class='active'>
+    <form method="POST" action="/products" autocomplete="off">
+        {{ product_form.hidden_tag() }}
+        <ul id='productFormList'>
+            <li>
+                {{ product_form.name.label }} {{ product_form.name(list='products', type='text')}}
+                {{ product_form.price.label }} {{ product_form.price(type='number', step='0.01', min='0')}}
+                {{ product_form.quantity.label }} {{ product_form.quantity(type='number',step='0.01', min='0') }}
+                <ul id='product-0-ingredients'></ul>
+                <button id='test-product-0-btn'>Dodaj składnik</button>       
+            </li>
+        </ul>
+        <button class='addNext'>Dodaj kolejny produkt</button>
+        <input type="submit" value='Dodaj' />
+    </form>
+    <datalist id='products'>
+        {% if products %}
+            {% for product in products %}
+                <option value='{{ product.name }}' />
+            {% endfor %}
+        {% endif %}
+    </datalist>
+</section>

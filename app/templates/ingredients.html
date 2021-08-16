@@ -1,0 +1,31 @@
+<section id='ingredients-section'>
+    <div>
+        <h1>Lista składników</h1>
+        <ul>
+            {% for ing in ingredients %}
+            <li>
+                <p>{{ ing.name }} - {{ ing.quantity }} {{ ing.unit }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div>
+        <form action="/ingredients" method="POST" autocomplete="off">
+            {{ ingredient_form.hidden_tag() }}
+            <ul id='ingredientFormList'>
+                <li id='ingredient-0' class='ingredientFormItem'>
+                    {{ ingredient_form.name.label }} {{ ingredient_form.name(list='ingredients', type='text')}}
+                    {{ ingredient_form.price.label }} {{ ingredient_form.price(type='number', step='0.01', min='0')}}
+                    {{ ingredient_form.quantity.label }} {{ ingredient_form.quantity(type='number', step='0.01', min='0') }}
+                </li>
+            </ul>
+            <button class='addNext'>Dodaj kolejny składnik</button>
+            <input type="submit" value='Dodaj' />
+        </form>
+        <datalist id='ingredients'>
+            {% for ingredient in ingredients %}
+            <option value='{{ ingredient.name }}' />
+            {% endfor %}
+        </datalist>
+    </div>
+</section>
