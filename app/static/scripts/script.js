@@ -69,13 +69,13 @@ const createIngredientForm = prefix => {
     ingredientFormListItem.setAttribute('id', prefix)
     ingredientFormListItem.classList.add('ingredientFormItem')
     //name
-    const nameLabel = createLabelField(`${prefix}-name`, 'Składnik')
+    const nameLabel = createLabelField(`${prefix}-name`, 'Składnik ')
     const nameField = createInputField([['id', `${prefix}-name`], ['name', `${prefix}-name`], ['type', 'text'], ['list', 'ingredients']])
     //price
-    const priceLabel = createLabelField(`${prefix}-price`, 'Cena')
+    const priceLabel = createLabelField(`${prefix}-price`, 'Cena w zł ')
     const priceField = createInputField([['id', `${prefix}-price`], ['name', `${prefix}-price`], ['type', 'number'], ['step', '0.01'], ['min', '0']])
     //quantity
-    const quantityLabel = createLabelField(`${prefix}-quantity`, 'Ilość kg/l')
+    const quantityLabel = createLabelField(`${prefix}-quantity`, 'Ilość kg/l ')
     const quantityField = createInputField([['id', `${prefix}-quantity`], ['name', `${prefix}-quantity`], ['type', 'number'], ['step', '0.01'], ['min', '0']])
     ingredientFormListItem.append(nameLabel, nameField, priceLabel, priceField, quantityLabel, quantityField);
     return ingredientFormListItem;
